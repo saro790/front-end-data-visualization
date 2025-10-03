@@ -1,0 +1,195 @@
+/* ---------- Global ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html, #root {
+  width: 100%;
+  height: 100%;
+  background: #0f0f1a;
+  color: #fff;
+  overflow-x: hidden;
+  padding: 30px;
+  perspective: 1200px; /* 3D effect */
+  animation: backgroundGlitch 20s infinite linear;
+}
+
+/* ---------- Background Animation ---------- */
+@keyframes backgroundGlitch {
+  0% { background: linear-gradient(120deg, #0ff, #00f, #ff00ff); }
+  25% { background: linear-gradient(120deg, #ff00ff, #0ff, #00f); }
+  50% { background: linear-gradient(120deg, #00f, #ff00ff, #0ff); }
+  75% { background: linear-gradient(120deg, #0ff, #00f, #ff00ff); }
+  100% { background: linear-gradient(120deg, #ff00ff, #0ff, #00f); }
+}
+
+/* ---------- Dashboard Container ---------- */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px);
+  width: calc(100% - 60px);
+  gap: 30px;
+}
+
+/* ---------- Header ---------- */
+.dashboard-header {
+  padding: 25px 35px;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 30px #0ff, 0 0 50px #ff00ff, 0 0 80px #00f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  transform: rotateX(1deg) rotateY(-1deg);
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px #0ff, 0 0 30px #ff00ff, 0 0 50px #00f;
+  text-align: center;
+}
+
+/* ---------- Upload Card ---------- */
+.upload-card {
+  background: rgba(26,26,46,0.85);
+  border-radius: 25px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,255,255,0.2), 0 10px 60px rgba(255,0,255,0.2), 0 10px 90px rgba(0,0,255,0.2);
+  transform: rotateX(2deg) rotateY(-1deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upload-card:hover {
+  transform: rotateX(0deg) rotateY(0deg) scale(1.02);
+  box-shadow: 0 15px 40px #0ff, 0 15px 70px #ff00ff, 0 15px 100px #00f;
+}
+
+.upload-card input[type="file"] {
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  font-weight: 500;
+}
+
+/* ---------- Progress Bar ---------- */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 5px #0ff, inset 0 2px 10px #ff00ff;
+}
+
+.progress-bar div {
+  height: 100%;
+  background: #0ff;
+  transition: width 0.4s ease;
+  border-radius: 12px;
+}
+
+/* ---------- Filters Buttons 3D ---------- */
+.filters { margin-bottom: 20px; }
+.filter-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+
+.dashboard-btn, .reset-btn {
+  padding: 14px 28px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px #0ff, 0 6px 30px #ff00ff, 0 6px 45px #00f;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: linear-gradient(270deg, #0ff, #ff00ff, #00f);
+  background-size: 600% 600%;
+  animation: btnGradient 8s ease infinite;
+}
+
+.dashboard-btn:hover, .reset-btn:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 12px 25px #0ff, 0 12px 50px #ff00ff, 0 12px 75px #00f;
+}
+
+.dashboard-btn.active {
+  transform: translateY(-5px) scale(1.12);
+  box-shadow: 0 14px 30px #0ff, 0 14px 55px #ff00ff, 0 14px 85px #00f;
+}
+
+.reset-btn {
+  background: linear-gradient(270deg, #ff4444, #ff0000, #ff66aa);
+  animation: resetGradient 8s ease infinite;
+}
+
+/* ---------- Gradient Animations ---------- */
+@keyframes btnGradient { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+@keyframes resetGradient { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+
+/* ---------- Summary Cards 3D ---------- */
+/* ---------- Summary Cards 3D Neon ---------- */
+.cards-summary {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.summary-card {
+  flex: 1;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 25px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 8px 20px #0ff, 0 8px 35px #ff00ff, 0 8px 50px #00f;
+  transform: rotateX(2deg) rotateY(-1deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #ff00ff, 0 0 15px #00f;
+}
+
+.summary-card:hover {
+  transform: rotateX(0deg) rotateY(0deg) scale(1.05);
+  box-shadow: 0 15px 30px #0ff, 0 15px 50px #ff00ff, 0 15px 80px #00f;
+}
+
+
+/* ---------- Charts Grid 3D ---------- */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  padding: 25px;
+  background: rgba(26,26,46,0.85);
+  border-radius: 25px;
+  box-shadow: 0 12px 25px #0ff, 0 12px 50px #ff00ff, 0 12px 75px #00f;
+  transform: rotateX(1deg) rotateY(-1deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: rotateX(0deg) rotateY(0deg) scale(1.03);
+  box-shadow: 0 20px 35px #0ff, 0 20px 60px #ff00ff, 0 20px 90px #00f;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  body, html, #root { padding: 15px; }
+  .charts-grid { gap: 20px; }
+  .filter-buttons { gap: 10px; }
+  .summary-card { padding: 15px; font-size: 0.9rem; }
+  .dashboard-header h1 { font-size: 2rem; }
+  .upload-card { padding: 18px; }
+}
