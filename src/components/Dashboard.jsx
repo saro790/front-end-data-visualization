@@ -90,20 +90,20 @@ export default function Dashboard({ data, setData, setFilteredData }) {
         <input type="file" accept=".csv,.json" onChange={handleFile} />
         <div className="progress-bar"><div style={{width:`${progress}%`}}></div></div>
         <p>Status: {status}</p>
-      </div>
+      </div>  <br/>
 
       <div className="filters">
         {["student","staff","employee"].map(t=>(
           <button key={t} onClick={()=>toggleType(t)} className={selectedTypes.includes(t)?"active":""}>{t}</button>
         ))}
         <button onClick={resetFilters}>Reset</button>
-      </div>
+      </div><br/>
 
       <div className="cards-summary">
-        <div>Total: {filtered.length}</div>
-        <div>Students: {filtered.filter(x=>x.type==="student").length}</div>
-        <div>Staff: {filtered.filter(x=>x.type==="staff").length}</div>
-        <div>Employees: {filtered.filter(x=>x.type==="employee").length}</div>
+        <div>Total: {filtered.length}</div><br/>
+        <div>Students: {filtered.filter(x=>x.type==="student").length}</div><br/>
+        <div>Staff: {filtered.filter(x=>x.type==="staff").length}</div><br/>
+        <div>Employees: {filtered.filter(x=>x.type==="employee").length}</div><br/>
       </div>
 
       <div className="charts-grid">
